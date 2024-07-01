@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="javasript.js" defer></script>
+    <script src="javashript.js"></script>
+    
+</head>
+<body>
+    <section id ="nav">
+        <div class="row">
+            <div class="container nav__container">
+                <figure id="log__wrapper">
+                    <img src="./assetts/logo.png" alt="" class="logo__img">
+                </figure>
+                <ul class="nav__links">
+                    <li class="">
+                        <a href="" class="link__contact nav__link">Contact Us</a></li>
+                    <li class=""><a href="" class="link__about nav__link">About</a></li>
+                    <li class=""><a href="" class="link__search nav__link">
+                        <button class="button__search click">Browse Games</button></a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section id="landing">
+        <div class="row">
+            <div class="container landing__container">
+                <h1 class="landing__text--title">America's Best Search Engine for Top Games.</h1>
+                <h2 class="landing__text--subtitle">Find your new Gaming Home Here</h2>
+                <li class=""><a href="" class="link__search nav__link">
+                <button class="button__search button__popular click">Search Popular Games</button></a></li>
+            </div>
+            <div class="gaming__companies">
+                <figure class="companies__imgs">
+                    <img src="./assetts/companies/2K_Games_Logo.svg.png"  class="companies__img" alt="">
+                </figure>
+                <figure class="companies__imgs">
+                    <img src="./assetts/companies/ea-games-logo-png-transparent.png"  class="companies__img" alt="">
+                </figure>
+
+                <figure class="companies__imgs">
+                    <img src="./assetts/companies/Epic_Games_logo.svg.png"  class="companies__img" alt="">
+                </figure>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container popular__container">
+                <h1 class="popular__games--title">Popular Games</h1>
+            
+                <div class="popular__games">
+                    <div class="popular__game">
+                        <h3 class="game__link--title">Neverwinter</h3>
+                        <div class="popular__img--wrapper">
+                            <figure class="popular__imgs">
+                                <img src="https://www.mmobomb.com/g/11/thumbnail.jpg" class="popular__img" alt="">
+                            </figure>
+                        </div>
+                        <div class="popular__text--wrapper">
+                            <a href="" class="game__link--text">https://www.mmobomb.com/open/neverwinter</a>
+                            <p class="game__genre--text">MMORPG</p>
+                            <p class="game__developer--text">Cryptic Studios</p>
+                        </div>
+                    </div>
+                    <div class="popular__game">
+                        <h3 class="game__link--title">Guild Wars 2</h3>
+                        <div class="popular__img--wrapper">
+                            <figure class="popular__imgs">
+                                <img src="https://www.mmobomb.com/g/13/thumbnail.jpg" class="popular__img" alt="">
+                            </figure>
+                        </div>
+                        <div class="popular__text--wrapper">
+                            <a href="" class="game__link--text">https://www.mmobomb.com/open/guild-wars-2"</a>
+                            <p class="game__genre--text">MMORPG</p>
+                            <p class="game__developer--text">ArenaNet</p>
+                        </div>
+                    </div>
+                    <div class="popular__game">
+                        <h3 class="game__link--title">Ragnarok Online 2</h3>
+                        <div class="popular__img--wrapper">
+                            <figure class="popular__imgs">
+                            <img src="https://www.mmobomb.com/g/230/thumbnail.jpg" class="popular__img" alt="">
+                            </figure>
+                        </div>
+                        <div class="popular__text--wrapper">
+                        <a href="" class="game__link--text">https://www.mmobomb.com/open/ragnarok-online-2</a>
+                        <p class="game__genre--text">MMORPG</p>
+                        <p class="game__developer--text">Cryptic Studios</p>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+        </div>       
+    </section>
+    <section id="search">
+        <div class="row">
+            <div class="container search__container">
+                <h1 class="search__title--text">Search through our massive search list, to find your new gaming home.</h1>
+                <h2 class="search__subtitle--text">We have something for everyone, search by title, genre, or developer.</h2>
+                <div class="search__wrapper">
+                                        
+                    <div class="game__filter">
+                        <select id="filter" >
+                            <option value="" disabled selected>Sort</option>
+                            <optgroup label="Genre"></optgroup>
+                            <option value="MMORPG">MMORPG</option>
+                            <option value="MMO" onselect="filterGames('MMO')">MMO</option>
+                            <option value="ARPG">ARPG</option>
+                            <option value="MMOARPG">MMOARPG</option>
+                            <optgroup label="Publisher"></optgroup>
+                            <option value="AMAZON" class="">Amazon Games</option>
+                            <option value="Gameforge">Gameforge</option>
+                            <option value="KingsIsle" class="">KingsIsle</option>
+                            <option value="Suba">Suba Games</option>
+                        </select>
+                    </div>
+                    <label for="" label="" class="game__search">Choose a game:</label>
+                    <textarea name="" id="textarea__game"></textarea>
+                </div>
+                <div class="popular__games games">
+                    
+                    
+                </div>
+            </div>
+        </div>
+
+    </section>    
+</body>
+
+</html>
