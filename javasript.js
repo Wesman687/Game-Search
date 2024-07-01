@@ -4,14 +4,13 @@ function renderGames(filter) {
     const gamesWrapper = document.querySelector('.games')
     const games = getGames()
     console.log(filter)
-    if (filter === 'MMOARPG' || (filter === 'ARPG') || (filter == "MMORPG") || (filter == 'MMO')) {
+    if (filter === 'MMOARPG' || (filter === 'ARPG') || (filter === "MMORPG") || (filter === 'MMO')) {
         const filteredGames = games.filter(game => filter === game.genre)
         gamesWrapper.innerHTML = mapIt(filteredGames)
         return
     }
     const gamesHtml = mapIt(games)
     gamesWrapper.innerHTML = gamesHtml
-
 }
 
 setTimeout(() => {
