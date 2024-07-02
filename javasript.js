@@ -55,7 +55,7 @@ setTimeout(() => {
     }
     mapArray = finalArray.map((games) => { 
     return [`<div class="popular__game">
-    <h3 class="game__link--title">${games.title}</h3>
+    <h3 class="game__link--title shadoww">${games.title}</h3>
         <div class="popular__img--wrapper">
         <figure class="popular__imgs">
             <img src="${games.thumbnail}" class="popular__img" alt="">
@@ -63,8 +63,8 @@ setTimeout(() => {
         </div>
         <div class="popular__text--wrapper">
         <a href="${games.game_url}" class="game__link--text">${games.game_url}</a>
-        <p class="game__genre--text">${games.genre}</p>
-        <p class="game__developer--text">${games.publisher}</p>
+        <p class="game__genre--text ">${games.genre}</p>
+        <p class="game__developer--text shadoww">${games.publisher}</p>
         </div>
     </div>`]
     }).join('')
@@ -77,12 +77,12 @@ function mapNews (news) {
         finalNews.push(news[i])
     }
     let array = finalNews.map((news) => { 
-    return [`<h1 class="news__title">${news.title}</h1>
+    return [`<h1 class="news__title shadowb">${news.title}</h1>
         <div class="news__window">
             <figure news_imgs>
                 <img src=${news.main_image} class="news__img" alt="">
             </figure>
-            <h2 class="news__subtitle">${news.short_description}</h3>
+            <h2 class="news__subtitle shadowb">${news.short_description}</h3>
             </div>
             <a href"${news.article_url}" class="news__url click">${news.article_url}</a>`]
     }).join('')
