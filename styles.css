@@ -187,12 +187,11 @@ News
     
 }
 .arrow-right {
-     transform-origin: 200%;
-    
+    left: 100%;
 }
 
 .news__window {
-    position: relative;
+    position: absolute;
     display: flex;
     background-color: #2b0202;
     border: 5px solid rgb(7, 6, 6);
@@ -234,7 +233,6 @@ Popular Games
     justify-content: center;
 }
 .popular__games {
-    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
