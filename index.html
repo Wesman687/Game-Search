@@ -6,7 +6,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="./styles.css">
     <script src="javasript.js" defer></script>
-    <script src="javashript.js"></script>
+
     
 </head>
 <body>
@@ -45,6 +45,29 @@
                 <figure class="companies__imgs">
                     <img src="./assetts/companies/Epic_Games_logo.svg.png"  class="companies__img" alt="">
                 </figure>
+            </div>
+        </div>
+        <div class="row">
+            <div class="container news__container main__news">
+
+            
+            <div class="mini__windows">
+                
+                <div class="mini__window">
+                    <figure class="mini__imgs">
+                        <img src="https://www.mmobomb.com/file/2024/6/daybreak-extra-life-2024-218x150.jpg" alt="" class="mini__img">
+                    </figure>
+                    <figure class="mini__imgs">
+                        <img src="https://www.mmobomb.com/file/2024/6/daybreak-extra-life-2024-218x150.jpg" alt="" class="mini__img">
+                    </figure>
+                    <figure class="mini__imgs">
+                        <img src="https://www.mmobomb.com/file/2024/6/daybreak-extra-life-2024-218x150.jpg" alt="" class="mini__img">
+                    </figure>
+                    <figure class="mini__imgs">
+                        <img src="https://www.mmobomb.com/file/2024/6/daybreak-extra-life-2024-218x150.jpg" alt="" class="mini__img">
+                    </figure>
+                </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -103,22 +126,24 @@
                 <div class="search__wrapper">
                                         
                     <div class="game__filter">
-                        <select id="filter" onchange="filterGames(event)">
-                            <option value="" disabled selected>Sort</option>
-                            <optgroup label="Genre"></optgroup>
-                            <option value="MMORPG">MMORPG</option>
-                            <option value="MMO">MMO</option>
-                            <option value="ARPG">ARPG</option>
-                            <option value="MMOARPG">MMOARPG</option>
-                            <optgroup label="Publisher"></optgroup>
-                            <option value="AMAZON" class="">Amazon Games</option>
-                            <option value="Gameforge">Gameforge</option>
-                            <option value="KingsIsle" class="">KingsIsle</option>
-                            <option value="Suba">Suba Games</option>
+                        <label for="" class="dropdown__toggle pcgames">Browse Pc Games</label>
+                        <select id="filter" class="toggle__pcgame toggle" onchange="filterGames(event)">
+                            <option value="MMORPG" class="toggle__pcgames">MMPORG</option>
+                            <option value="Shooter" class="toggle__pcgames">SHOOTER</option>
+                            <option value="MOBA" class="toggle__pcgames">MOBA</option>
+                            <option value="MMO" class="toggle__pcgames">MMO</option>
+                            <option value="Strategy" class="toggle__pcgames">STRATEGY</option>
+                            <option value="MMO" class="toggle__pcgames">MMPORG</option>                             
+                        </select>
+                        <label for="" class="dropdown__toggle pcgames">Release Date</label>                        
+                        <select id="filter" class="toggle__pcgame toggle" onchange="filterGames(event)">
+                            <option value="2024" class="toggle__pcgames">2024</option>
+                            <option value="2023" class="toggle__pcgames">2023</option>
+                            <option value="2022" class="toggle__pcgames">2022</option>
+                            <option value="2021" class="toggle__pcgames">2021</option>
+                            <option value="2020" class="toggle__pcgames">2020</option>
                         </select>
                     </div>
-                    <label for="" label="" class="game__search">Choose a game:</label>
-                    <textarea name="" id="textarea__game"></textarea>
                 </div>
                 <div class="popular__games games">
                     
