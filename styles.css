@@ -407,6 +407,9 @@ Footer
     .toggle__label {
         font-size: 24px;
     }
+    .popular__games--title {
+        font-size: 28px;
+    }
     .gaming__companies {
         flex-direction: column;
     }
@@ -420,6 +423,13 @@ Footer
     .landing__text--title {
         font-size: 24px;
     }
+    .game__link--title {
+        font-size: 20px;
+    }
+    .popular__img {
+        width: 75%;
+    }
+    
     .nav__link {
         font-size: 24px;
         text-align: center;
