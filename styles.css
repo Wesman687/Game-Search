@@ -79,10 +79,7 @@ p {
     border: 4px solid rgb(253, 0, 0);
     color: rgb(253, 0, 0);
 }
-.nav__link:hover {
-    text-decoration: underline;
-    color: #e78686;
-}
+
 
 /***  
 
