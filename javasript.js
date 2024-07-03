@@ -2,6 +2,8 @@ const gamesWrapper = document.querySelector('.games')
 const newsWrapper = document.querySelector('.main__news')
 let mapArray = []
 let newsArray = []
+let newsPosition = 0
+let currentNews = []
 async function fetchData(url) {
     let result = []
     const options = {
@@ -21,32 +23,97 @@ async function fetchData(url) {
       
 }
 
+async function fetchNews () {
+    let news = await fetchData('https://mmo-games.p.rapidapi.com/latestnews')
+    createsNewsArray(news)   
+}
+
+function moveRight() {
+    if (newsPosition === 15)
+        newsPosition = 0
+    else
+    newsPosition += 1
+    newsToHtml()
+}
+function moveLeft() {
+    if (newsPosition === 0)
+        newsPosition = 14
+    else
+    newsPosition -= 1
+    newsToHtml()
+}
+
+
+
+fetchCategory("Shooter");
+fetchNews()
+
+
+function newsToHtml () {       
+    console.log(newsPosition)
+    
+    newsWrapper.innerHTML = `
+        <div class="news__window">
+        <h1 class="news__title shadowb">${currentNews[newsPosition].title}</h1>
+            <div class="new__img--wrapper">
+             <figure news_imgs>
+                <img src=${currentNews[newsPosition].main_image} class="news__img" alt="">
+                <div class="arrow__wrapper">
+<i class="fa-solid fa-caret-left arrow arrow-left click" onclick="moveLeft()"></i>
+<h2 class="news__subtitle shadowb">${currentNews[newsPosition].short_description}</h3>
+<i class="fa-solid fa-caret-right arrow arrow-right click" onclick="moveRight()"></i>            
+</div>
+            </figure>
+            </div>
+            
+            <a href"${currentNews.article_url}" class="news__url click">${currentNews[newsPosition].article_url}</a> </div>`
+            
+}
+
+function createsNewsArray(news) {
+    let array = []
+    for (i = 0; i < 16; ++i){
+        array.push(news[i])
+    }
+    currentNews = array
+    newsToHtml()
+}
+
+
+
+
+
+
+/***
+ * 
+ *  Games Area
+ */
 
 async function fetchCategory(category) {
-    console.log(category)
     let url = "https://mmo-games.p.rapidapi.com/games?category=MMORPG"
     if (isNaN(category))
         url = "https://mmo-games.p.rapidapi.com/games?category=" + category;      
     
     let data = await fetchData(url)
-    let news = await fetchData('https://mmo-games.p.rapidapi.com/latestnews')
-    newsArray = mapNews(news)
-    newsWrapper.innerHTML = newsArray
     if (isNaN(category))
     gamesWrapper.innerHTML = mapIt(data.filter(game => category === game.genre))
     else{
         let date = getYear(category)
         gamesWrapper.innerHTML = mapIt(data.filter(game => date === getYear(game.release_date)))
-        console.log(mapIt(result.filter(game => date === getYear(game.release_date))))
-    }
-    
+    }   
 }
 
-setTimeout(() => {
-    fetchCategory("Shooter");
-  });
-  
-  function mapIt (games) {       
+function filterGames(event) {
+    fetchCategory(event.target.value)
+}
+function getYear(date) {
+    let newData = ""
+    for (i = 0; i < 4; i++)
+        newData += date[i]
+    return(newData)
+}
+
+function mapIt (games) {       
     let finalArray = []
     for (i = 0; i < 6; ++i){
         if (!games[i]) i=5
@@ -71,32 +138,3 @@ setTimeout(() => {
     return mapArray
 
 }
-function mapNews (news) {       
-    let finalNews = []
-    for (i = 0; i < 1; ++i){
-        finalNews.push(news[i])
-    }
-    let array = finalNews.map((news) => { 
-    return [`<h1 class="news__title shadowb">${news.title}</h1>
-        <div class="news__window">
-            <figure news_imgs>
-                <img src=${news.main_image} class="news__img" alt="">
-            </figure>
-            <h2 class="news__subtitle shadowb">${news.short_description}</h3>
-            </div>
-            <a href"${news.article_url}" class="news__url click">${news.article_url}</a>`]
-    }).join('')
-    return array
-}
-
-function filterGames(event) {
-    fetchCategory(event.target.value)
-}
-
-function getYear(date) {
-    let newData = ""
-    for (i = 0; i < 4; i++)
-        newData += date[i]
-    return(newData)
-}
-

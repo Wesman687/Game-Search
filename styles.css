@@ -55,7 +55,7 @@ p {
 }
 
 .container {
-    padding: 96px 24px;
+    padding: 96px 0px;
     display: flex;
     background-color: rgb(202, 234, 241);
 }
@@ -70,6 +70,9 @@ p {
     color: #fff;
     border: 4px solid white;
     box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+}
+.nav__search {
+    box-shadow: rgb(0, 0, 0) 4px 4px 15px .2px;
 }
 .button__search:hover {
     background-color: #fff;
@@ -89,6 +92,9 @@ Nav
 
 #nav, #landing, #search {
     background-color: rgb(202, 234, 241);
+}
+#footer {
+    background-color: #2b0202;
 }
 .nav__container {
     justify-content: space-between;
@@ -117,6 +123,9 @@ Nav
     font-size: 48px;
     font-weight: bold;
 }
+.nav__search {
+    box-shadow: rgb(0, 0, 0) 4px 4px 15px .2px;
+}
 
 
 
@@ -134,7 +143,7 @@ Landing
 }
 
 .button__popular {
-    margin-top: 38px;
+    margin: 42px 0px;
     padding: 24px 48px;
     font-size: 32px;
     
@@ -144,12 +153,14 @@ Landing
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 48px;
+    width: 100%;
+    padding-top: 42px;
 }
 .companies__img {
-    width: 175px;
+    width: 100px;
     box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
     transition: 350ms all ease;
+    padding: 32px;
 }
 
 
@@ -164,6 +175,7 @@ News
 .news__subtitle {
     color: #fff;
     width: 60%;
+   
 }
 .news__url {
     font-size: 28px;
@@ -172,53 +184,57 @@ News
 }
 
 .news__container {
-    position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 96px; 
+    transition: 350ms;
     width: 100%;
 }
-.arrow {
-    position: relative;
+.arrow {    
     z-index: 100;
     font-size: 100px;
     color: white;
-    
 }
 .arrow-right {
-    left: 100%;
+    right: 15%;
+}
+.arrow__wrapper {
+    margin-top: 18px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 2;
+}
+.fa-solid:hover {
+    color: rgb(253, 0, 0);
+}
+.new__img--wrapper {
+    display: flex;
 }
 
 .news__window {
-    position: absolute;
+    flex-direction: column;
     display: flex;
     background-color: #2b0202;
     border: 5px solid rgb(7, 6, 6);
     border-radius: 24px;
     align-items: center;
     box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+    margin-top: 32px;
+    padding: 32px;
     
 }
 .news__img {
     width: 100%;
     border-radius: 24px;
     box-shadow: #fff 0px 0px 10px 10px;
+    position: relative;
+}
+.news__url {
+    margin: 32px;
 }
 
-.mini__windows {
-    display: flex;
-}
-.mini__img {
-    width: 250px;
-    border-radius: 24px;
-}
-.mini__window {
-    display: flex;
-    background-color: #311111;
-    border: 5px solid rgb(7, 6, 6);
-    
-}
 
 /***
 
@@ -314,12 +330,9 @@ Search area
 .game__search {
     margin-right: 12px;
 }
-.textarea__game {
-    width: 80%;
-}
+
 .toggle {
     margin: 24px;
-    width: 150px;
     height: 48px;
     font-size: 24px;
     text-align: center;
@@ -335,13 +348,51 @@ Search area
 }
 .toggle__release--btn {
     font-size: 30px;
-    width: 120px;
+    width: 180px;
 }
 .toggle__label { 
     font-size: 32px;
     width: 35%;
     font-weight: bold;
 }
+.toggle__label--pc {
+    width: 40%;
+}
 .label__wrapper {
     margin-right: 32px;
+}
+
+
+/****
+
+Footer
+
+****/
+.footer__text {
+    font-size: 28px;
+}
+.footer__container {
+    background-color: #2b0202;
+    flex-direction: column;
+    align-items: center;
+}
+@media (max-width: 850px) {
+    .nav__container {
+        flex-direction: column;
+    }
+    .nav__link {
+        font-size: 32px;
+    }
+    .search__title--text {
+        font-size: 28px;
+    }
+    .search__subtitle--text {
+        font-size: 24px;
+    }
+    .search__container {
+        padding: 32px;
+    }
+    .toggle__label {
+        font-size: 24px;
+    }
 }
