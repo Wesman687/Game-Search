@@ -343,10 +343,7 @@ Search area
      0px 0px 0 rgb(252, 0, 0),
       0px 1px 0 rgb(252, 0, 0);
 }
-.toggle__release--btn {
-    font-size: 30px;
-    width: 180px;
-}
+
 .toggle__label { 
     font-size: 32px;
     width: 35%;
@@ -367,13 +364,31 @@ Footer
 ****/
 .footer__text {
     font-size: 28px;
+    text-align: center;
 }
 .footer__container {
     background-color: #2b0202;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 @media (max-width: 850px) {
+
+    .news__window {
+       padding: 0; 
+    }
+    .news__title {
+        font-size: 16px;
+    }
+    .news__subtitle {
+        font-size: 12px;
+    }
+    .fa-solid {
+        font-size: 20px;
+    }
+    .news__url {
+        font-size: 10px;
+    }
     .nav__container {
         flex-direction: column;
     }
@@ -391,5 +406,32 @@ Footer
     }
     .toggle__label {
         font-size: 24px;
+    }
+    .gaming__companies {
+        flex-direction: column;
+    }
+    .button__search {
+        width: 70%;
+        font-size: 18px;
+    }
+    .landing__text--subtitle {
+        font-size: 22px;
+    }
+    .landing__text--title {
+        font-size: 24px;
+    }
+    .nav__link {
+        font-size: 24px;
+        text-align: center;
+    }
+    .button__search { 
+        font-size: 16px;
+    }
+
+    .toggle {
+        font-size: 16px;
+    }
+    .toggle__label {
+        font-size: 16px;
     }
 }
