@@ -4,6 +4,7 @@ let mapArray = []
 let newsArray = []
 let newsPosition = 0
 let currentNews = []
+
 async function fetchData(url) {
     let result = []
     const options = {
@@ -20,11 +21,15 @@ async function fetchData(url) {
       } catch (error) {
         console.error(error);
       }
-      
+
+    
 }
 
 async function fetchNews () {
+    document.body.classList += ' news__loading'
     let news = await fetchData('https://mmo-games.p.rapidapi.com/latestnews')
+
+    document.body.classList.remove('news__loading')
     createsNewsArray(news)   
 }
 
@@ -35,6 +40,20 @@ function moveRight() {
     newsPosition += 1
     newsToHtml()
 }
+function arrowClickLeft() {
+    clearInterval(timeOut)
+    moveLeft()
+    timeOut = setInterval(reStartMovement, 10000)
+}
+function arrowClickRight() {
+    clearInterval(timeOut)
+    moveRight()
+    timeOut = setInterval(reStartMovement, 10000)
+}
+function reStartMovement() {
+    clearInterval(timeOut)
+    timeOut = setInterval(moveRight, 5000)
+}
 function moveLeft() {
     if (newsPosition === 0)
         newsPosition = 14
@@ -42,16 +61,16 @@ function moveLeft() {
     newsPosition -= 1
     newsToHtml()
 }
-
-
-
+function stopInterval() {
+    clearInterval(timeOut)
+}
+let timeOut = setInterval(moveRight, 5000)
 fetchCategory("Shooter");
 fetchNews()
 
 
 function newsToHtml () {       
-    console.log(newsPosition)
-    
+   
     newsWrapper.innerHTML = `
         <div class="news__window">
         <h1 class="news__title shadowb">${currentNews[newsPosition].title}</h1>
@@ -59,9 +78,9 @@ function newsToHtml () {
              <figure news_imgs>
                 <img src=${currentNews[newsPosition].main_image} class="news__img" alt="">
                 <div class="arrow__wrapper">
-<i class="fa-solid fa-caret-left arrow arrow-left click" onclick="moveLeft()"></i>
+<i class="fa-solid fa-caret-left arrow arrow-left click" onclick="arrowClickLeft()"></i>
 <h2 class="news__subtitle shadowb">${currentNews[newsPosition].short_description}</h3>
-<i class="fa-solid fa-caret-right arrow arrow-right click" onclick="moveRight()"></i>            
+<i class="fa-solid fa-caret-right arrow arrow-right click" onclick="arrowClickRight()"></i>            
 </div>
             </figure>
             </div>
@@ -93,8 +112,9 @@ async function fetchCategory(category) {
     let url = "https://mmo-games.p.rapidapi.com/games?category=MMORPG"
     if (isNaN(category))
         url = "https://mmo-games.p.rapidapi.com/games?category=" + category;      
-    
+    document.body.classList += ' games__loading'
     let data = await fetchData(url)
+    document.body.classList.remove('games__loading')
     if (isNaN(category))
     gamesWrapper.innerHTML = mapIt(data.filter(game => category === game.genre))
     else{

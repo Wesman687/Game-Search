@@ -79,7 +79,18 @@ p {
     border: 4px solid rgb(253, 0, 0);
     color: rgb(253, 0, 0);
 }
+.fa-spinner {
+    animation: rotate 600ms infinite linear;
+}
 
+@keyframes rotate {
+    0% { 
+        transform: rotate(0)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
 
 /***  
 
@@ -169,6 +180,38 @@ Landing
 News
 
 **/
+.spinner__wrapper--news {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fa-spinner--news {
+    display: none !important;
+    color: #fff;
+    font-size: 150px;
+    position: absolute;
+    z-index: 3;
+}
+.news__loading .fa-spinner--news {
+    display: flex !important;
+}
+.spinner__wrapper--games {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.fa-spinner--games {
+    display: none !important;
+    color: #fff;
+    font-size: 150px;
+    z-index: 3;
+    margin-left: 42px;
+}
+.news__loading .fa-spinner--games {
+    display: flex !important;
+}
 .news__subtitle {
     color: #fff;
     width: 60%;
@@ -429,7 +472,7 @@ Footer
     .popular__img {
         width: 75%;
     }
-    
+
     .nav__link {
         font-size: 24px;
         text-align: center;
