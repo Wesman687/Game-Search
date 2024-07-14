@@ -119,7 +119,7 @@ async function fetchCategory(category, title) {
     console.log(data)
     document.body.classList.remove('games__loading')
     if (title){
-        gamesWrapper.innerHTML = mapIt(data.filter(game =>  game.title.toUpperCase().match(category.toUpperCase())))
+        gamesWrapper.innerHTML = mapIt(data.filter(game =>  game.title.toUpperCase().match(category.toUpperCase()))) + mapIt(data.filter(game =>  game.short_description.toUpperCase().match(category.toUpperCase())))
     }
     else if (!(isNaN(category))) {
     gamesWrapper.innerHTML = mapIt(data.filter(game => category === getYear(game.release_date)))
