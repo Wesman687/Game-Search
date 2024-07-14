@@ -116,7 +116,6 @@ async function fetchCategory(category, title) {
         url = "https://mmo-games.p.rapidapi.com/games?category=" + category;      
     document.body.classList += ' games__loading'
     let data = await fetchData(url)
-    console.log(data)
     document.body.classList.remove('games__loading')
     if (title){
         gamesWrapper.innerHTML = mapIt(data.filter(game =>  game.title.toUpperCase().match(category.toUpperCase()))) + mapIt(data.filter(game =>  game.short_description.toUpperCase().match(category.toUpperCase())))
@@ -143,6 +142,11 @@ async function searchBar() {
         }
     }
     fetchCategory(text, true)
+}
+function pressEnter(keys){
+    if (keys === 'Enter') {
+        searchBar()
+      }    
 }
 
 function filterGames(event) {

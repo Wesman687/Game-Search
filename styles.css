@@ -7,6 +7,7 @@
     border: 0;
     text-decoration: none;
     text-wrap: wrap;
+    font-family: "Roboto", sans-serif;
 }
 
 li {
@@ -354,8 +355,12 @@ Search area
 .search__container {
     align-items: center;
     flex-direction: column;
+    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
+    padding: 0;
 }
 .input__wrapper {
+    
+    box-shadow: rgb(0, 0, 0) 10px 10px 30px .2px;
     width: 90%;
     border: 2px solid black;
     border-radius: 14px;
