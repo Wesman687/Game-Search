@@ -1,5 +1,6 @@
 const gamesWrapper = document.querySelector('.games')
 const newsWrapper = document.querySelector('.main__news')
+const tags = "mmorpg, shooter, strategy, moba, racing, sports, social, sandbox, open-world, survival, pvp, pve, pixel, voxel, zombie, turn-based, first-person, third-Person, top-down, tank, space, sailing, side-scroller, superhero, permadeath, card, battle-royale, mmo, mmofps, mmotps, 3d, 2d, anime, fantasy, sci-fi, fighting, action-rpg, action, military, martial-arts, flight, low-spec, tower-defense, horror, mmorts"
 let mapArray = []
 let newsArray = []
 let newsPosition = 0
@@ -24,6 +25,7 @@ async function fetchData(url) {
 
     
 }
+
 
 async function fetchNews () {
     document.body.classList += ' news__loading'
@@ -65,7 +67,7 @@ function stopInterval() {
     clearInterval(timeOut)
 }
 let timeOut = setInterval(moveRight, 5000)
-fetchCategory("Shooter");
+fetchCategory("Shooter", false);
 fetchNews()
 
 
@@ -108,23 +110,43 @@ function createsNewsArray(news) {
  *  Games Area
  */
 
-async function fetchCategory(category) {
-    let url = "https://mmo-games.p.rapidapi.com/games?category=MMORPG"
-    if (isNaN(category))
+async function fetchCategory(category, title) {
+    let url = 'https://mmo-games.p.rapidapi.com/games?sort-by=alphabetical'
+    if (isNaN(category) && !(title))
         url = "https://mmo-games.p.rapidapi.com/games?category=" + category;      
     document.body.classList += ' games__loading'
     let data = await fetchData(url)
+    console.log(data)
     document.body.classList.remove('games__loading')
-    if (isNaN(category))
-    gamesWrapper.innerHTML = mapIt(data.filter(game => category === game.genre))
-    else{
-        let date = getYear(category)
-        gamesWrapper.innerHTML = mapIt(data.filter(game => date === getYear(game.release_date)))
-    }   
+    if (title){
+        gamesWrapper.innerHTML = mapIt(data.filter(game =>  game.title.toUpperCase().match(category.toUpperCase())))
+    }
+    else if (!(isNaN(category))) {
+    gamesWrapper.innerHTML = mapIt(data.filter(game => category === getYear(game.release_date)))
+    }
+    else {
+        gamesWrapper.innerHTML = mapIt(data)
+    }
+}
+
+async function searchBar() {
+    let text = document.querySelector('.input__bar').value
+    if (text === "") {
+        return
+    }
+    if (isNaN(text) && (tags.toUpperCase().search(text.toUpperCase()) !== -1)){
+        fetchCategory(text, false)       
+    }
+    else {
+        if (text.length === 4 && !(isNaN(text))) {
+            fetchCategory(text, false)
+        }
+    }
+    fetchCategory(text, true)
 }
 
 function filterGames(event) {
-    fetchCategory(event.target.value)
+    fetchCategory(event.target.value, false)
 }
 function getYear(date) {
     let newData = ""
