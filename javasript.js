@@ -118,7 +118,8 @@ async function fetchCategory(category, title) {
     let data = await fetchData(url)
     document.body.classList.remove('games__loading')
     if (title){
-        gamesWrapper.innerHTML = mapIt(data.filter(game =>  game.title.toUpperCase().match(category.toUpperCase()))) + mapIt(data.filter(game =>  game.short_description.toUpperCase().match(category.toUpperCase())))
+        let tempArray = data.filter(game =>  game.title.toUpperCase().match(category.toUpperCase()))
+        gamesWrapper.innerHTML = mapIt(tempArray) + mapIt(data.filter(game =>  ((game.short_description.toUpperCase().match(category.toUpperCase()) && (game.title !== tempArray[0].title)))))
     }
     else if (!(isNaN(category))) {
     gamesWrapper.innerHTML = mapIt(data.filter(game => category === getYear(game.release_date)))
